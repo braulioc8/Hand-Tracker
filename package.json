@@ -1,0 +1,76 @@
+{
+  "name": "hand-tracker-app",
+  "version": "1.0.0",
+  "description": "Kinect-style hand tracker using MediaPipe and Three.js",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron-forge start",
+    "dev": "electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.11.1",
+    "@electron-forge/maker-appx": "^7.11.1",
+    "@electron-forge/maker-deb": "^7.11.1",
+    "@electron-forge/maker-rpm": "^7.11.1",
+    "@electron-forge/maker-squirrel": "^7.11.1",
+    "@electron-forge/maker-zip": "^7.11.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.11.1",
+    "@electron-forge/plugin-fuses": "^7.11.1",
+    "@electron/fuses": "^1.8.0",
+    "electron": "^30.0.0"
+  },
+  "keywords": [
+    "hand-tracking",
+    "mediapipe",
+    "threejs",
+    "kinect"
+  ],
+  "author": "Braulio Cajas",
+  "license": "SEE LICENSE IN LICENSE FILE",
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.1",
+    "robotjs": "^0.7.1"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "asar": true,
+        "extraResource": [
+          "models/house.glb"
+        ]
+      },
+      "rebuildConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "hand_tracker_app"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin",
+            "win32"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ],
+      "plugins": [
+        {
+          "name": "@electron-forge/plugin-auto-unpack-natives",
+          "config": {}
+        }
+      ]
+    }
+  }
+}

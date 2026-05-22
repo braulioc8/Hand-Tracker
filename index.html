@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Tracking 3D House AR</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <!-- Demo View Container -->
+        <div id="demo-container" class="hidden">
+            <video id="webcam" autoplay playsinline></video>
+            <canvas id="output_canvas"></canvas>
+            <div id="demo-label">VISTA DE SEGUIMIENTO</div>
+            <div id="demo-watermark">Hecho por Braulio Cajas, todos los derechos reservados</div>
+        </div>
+        
+        <canvas id="canvas3d"></canvas>
+        
+        <!-- Status Indicator -->
+        <div id="status-container">
+            <div id="voice-visualizer" class="hidden">
+                <canvas id="waveform-canvas"></canvas>
+            </div>
+            <div id="status-indicator">
+                <div id="status-dot"></div>
+                <span id="status-text">Buscando manos...</span>
+            </div>
+        </div>
+
+        <!-- Kinect Hand Icon -->
+        <div id="kinect-hand" class="hidden">
+            <svg id="click-progress" viewBox="0 0 64 64">
+                <circle cx="32" cy="32" r="28"></circle>
+            </svg>
+            <div class="hand-circle"></div>
+        </div>
+
+        <!-- Kinect Hand Icon -->
+        <div id="app-menu">
+            <h2>Menú de Control</h2>
+            <button class="menu-btn" id="resume-btn">Continuar</button>
+            <button class="menu-btn" id="settings-btn">Configuración</button>
+            <button class="menu-btn" id="demo-btn">Demostración</button>
+            <button class="menu-btn exit-btn" id="menu-exit-btn">Salir de la App</button>
+        </div>
+
+        <!-- Settings Modal -->
+        <div id="settings-modal" class="hidden">
+            <div id="settings-content">
+                <h2 data-i18n="settings_title">Configuración</h2>
+                
+                <div class="setting-item">
+                    <label data-i18n="language_label">Idioma</label>
+                    <select id="language-select">
+                        <option value="es">Español</option>
+                        <option value="en">English</option>
+                    </select>
+                </div>
+
+                <div class="setting-item">
+                    <label data-i18n="camera_label">Cámara de Entrada</label>
+                    <select id="camera-select"></select>
+                </div>
+
+                <div class="setting-item">
+                    <label data-i18n="mic_label">Micrófono</label>
+                    <select id="mic-select"></select>
+                </div>
+
+                <div class="setting-item">
+                    <label data-i18n="sensitivity_label">Sensibilidad del Cursor</label>
+                    <input type="range" id="sensitivity-range" min="0.05" max="0.3" step="0.01" value="0.15">
+                </div>
+
+                <button class="menu-btn" id="save-settings" data-i18n="save_btn">Guardar y Cerrar</button>
+            </div>
+        </div>
+
+        <!-- Text Context Menu -->
+        <div id="text-tools" class="hidden collapsed">
+            <div id="text-tools-trigger">...</div>
+            <div id="text-tools-actions">
+                <button class="text-tool-btn" id="delete-btn" title="Borrar (Mantener para borrar rápido)">⌫</button>
+                <button class="text-tool-btn" id="mic-btn" title="Dictado por voz">🎤</button>
+            </div>
+        </div>
+
+        <!-- Scroll Icon -->
+        <div id="scroll-overlay" class="hidden">
+            <div class="scroll-icon">↕</div>
+            <div class="scroll-text">MODO SCROLL</div>
+        </div>
+
+        <div id="menu-hint">Cierra ambos puños para el menú</div>
+    </div>
+
+    <!-- Three.js -->
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@latest/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@latest/examples/jsm/"
+            }
+        }
+    </script>
+    <script src="renderer.js"></script>
+</body>
+</html>
