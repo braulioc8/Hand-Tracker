@@ -38,4 +38,4 @@ EL SOFTWARE SE PROPORCIONA "TAL CUAL" (AS IS), SIN GARANTÍA DE NINGÚN TIPO, EX
 
 ---
 
-**Contact / Contacto:** [Insert Contact Method / Insertar Método de Contacto]
+**Contact / Contacto:** gmail / cajasbraulio@gmail.com
