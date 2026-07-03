@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "experience": "Experiencia",
+    "tech": "Tecnología",
+    "get_beta": "GET BETA"
+  },
+  "intro": {
+    "prefix": "El Futuro es ",
+    "highlight": "Libre."
+  },
+  "hero": {
+    "title": "Interfaz del Futuro.",
+    "subtitle_prefix": "Manos ",
+    "subtitle_highlight": "Libres.",
+    "description": "Diseñando un puente perfecto entre tu movimiento y tu máquina.",
+    "cta": "INICIAR DESPLIEGUE"
+  },
+  "experience": {
+    "title": "Tu mano es el nuevo cursor.",
+    "description": "El seguimiento neuronal de 21 puntos traduce gestos submilimétricos en ejecución del sistema. Sin hardware, precisión infinita."
+  },
+  "rainbow": {
+    "title": "Motor de Voz Local",
+    "description": "Modelo Kaldi integrado para dictado de alta fidelidad. Procesamiento de voz ejecutado enteramente en silicio local para máxima privacidad."
+  },
+  "bento": {
+    "zero_trust": {
+      "title": "Biometría Zero-Trust",
+      "description": "Tus datos biométricos nunca salen de tu dispositivo. El procesamiento de visión se ejecuta en un espacio de memoria protegido."
+    },
+    "system_integration": {
+      "title": "Integración a Nivel de Sistema",
+      "description": "Vínculos directos de C++ al bucle de eventos del SO, omitiendo la sobrecarga estándar. Ejecución en tiempo real a 30fps."
+    },
+    "metrics": {
+      "latency": "MS_LATENCY",
+      "accuracy": "%_PRECISIÓN",
+      "fps": "FPS_EJECUCIÓN"
+    }
+  },
+  "download": {
+    "title": "Obtén Gesto.",
+    "beta_tag": "ACTUALMENTE EN FASE BETA PÚBLICA",
+    "windows": {
+      "label": "Windows",
+      "build": "WINDOWS_BUILD (.EXE)",
+      "soon": "PRÓXIMAMENTE"
+    },
+    "linux": {
+      "label": "Linux",
+      "debian": "DEBIAN_INSTALLER (.DEB)",
+      "portable": "PORTABLE_RELEASE (.ZIP)"
+    }
+  },
+  "footer": {
+    "description": "Transformando la visión en el controlador más intuitivo del mundo.",
+    "product": "Producto",
+    "legal": "Legal",
+    "development": "Desarrollo",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "documentation": "Documentación",
+    "copyright": "© 2026 GESTO ENGINE // DISEÑADO POR BRAULIO CAJAS"
+  }
+}

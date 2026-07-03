@@ -1,4 +1,6 @@
 allowBuilds:
-  electron: set this to true or false
-  electron-winstaller: set this to true or false
-  robotjs: set this to true or false
+  electron: false
+  electron-winstaller: false
+  ffi-napi: set this to true or false
+  ref-napi: set this to true or false
+  robotjs: false

@@ -1,24 +1,25 @@
 {
-  "name": "hand-tracker-app",
+  "name": "gesto",
   "version": "1.0.0",
-  "description": "Kinect-style hand tracker using MediaPipe and Three.js",
+  "description": "Kinect-style Hand Tracker with Offline STT",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
     "dev": "electron .",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "rebuild": "electron-rebuild -f -w robotjs"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.11.1",
     "@electron-forge/maker-appx": "^7.11.1",
     "@electron-forge/maker-deb": "^7.11.1",
-    "@electron-forge/maker-rpm": "^7.11.1",
     "@electron-forge/maker-squirrel": "^7.11.1",
-    "@electron-forge/maker-zip": "^7.11.1",
+    "@electron-forge/maker-zip": "^7.11.2",
     "@electron-forge/plugin-auto-unpack-natives": "^7.11.1",
     "@electron-forge/plugin-fuses": "^7.11.1",
     "@electron/fuses": "^1.8.0",
+    "@electron/rebuild": "^4.0.4",
     "electron": "^30.0.0"
   },
   "keywords": [
@@ -31,14 +32,16 @@
   "license": "SEE LICENSE IN LICENSE FILE",
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1",
-    "robotjs": "^0.7.1"
+    "github": "^14.0.0",
+    "robotjs": "^0.7.1",
+    "vosk-browser": "^0.0.8"
   },
   "config": {
     "forge": {
       "packagerConfig": {
         "asar": true,
         "extraResource": [
-          "models/house.glb"
+          "models/model.zip"
         ]
       },
       "rebuildConfig": {},
@@ -46,22 +49,19 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "hand_tracker_app"
+            "name": "gesto"
           }
         },
         {
           "name": "@electron-forge/maker-zip",
           "platforms": [
             "darwin",
-            "win32"
+            "win32",
+            "linux"
           ]
         },
         {
           "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
           "config": {}
         }
       ],

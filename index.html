@@ -13,10 +13,21 @@
             <video id="webcam" autoplay playsinline></video>
             <canvas id="output_canvas"></canvas>
             <div id="demo-label">VISTA DE SEGUIMIENTO</div>
+            <div class="demo-hud-corners">
+                <div class="corner-br top-left"></div>
+                <div class="corner-br top-right"></div>
+                <div class="corner-br bottom-left"></div>
+                <div class="corner-br bottom-right"></div>
+            </div>
+            <div class="demo-scanline"></div>
+            <div class="demo-stats">
+                <div class="stat-row"><span class="stat-lbl">FPS:</span> <span id="stat-fps">0</span></div>
+                <div class="stat-row"><span class="stat-lbl">LATENCY:</span> <span id="stat-latency">0ms</span></div>
+                <div class="stat-row"><span class="stat-lbl">ACCURACY:</span> <span id="stat-accuracy">99.4%</span></div>
+                <div class="stat-row"><span class="stat-lbl">ENGINE:</span> <span id="stat-engine">MEDIAPIPE GPU</span></div>
+            </div>
             <div id="demo-watermark">Hecho por Braulio Cajas, todos los derechos reservados</div>
         </div>
-        
-        <canvas id="canvas3d"></canvas>
         
         <!-- Status Indicator -->
         <div id="status-container">
@@ -32,6 +43,14 @@
         <!-- Kinect Hand Icon -->
         <div id="kinect-hand" class="hidden">
             <svg id="click-progress" viewBox="0 0 64 64">
+                <defs>
+                    <linearGradient id="rainbow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ff0055" />
+                        <stop offset="30%" stop-color="#00ff88" />
+                        <stop offset="70%" stop-color="#0088ff" />
+                        <stop offset="100%" stop-color="#ff0055" />
+                    </linearGradient>
+                </defs>
                 <circle cx="32" cy="32" r="28"></circle>
             </svg>
             <div class="hand-circle"></div>
@@ -69,6 +88,21 @@
                     <select id="mic-select"></select>
                 </div>
 
+                <div class="setting-item checkbox-item">
+                    <label>Mostrar Texto de Estado</label>
+                    <input type="checkbox" id="show-status-text">
+                </div>
+
+                <div class="setting-item checkbox-item">
+                    <label data-i18n="show_demo_label">Mostrar Vista de Seguimiento</label>
+                    <input type="checkbox" id="show-demo-view">
+                </div>
+
+                <div class="setting-item checkbox-item">
+                    <label data-i18n="show_voice_label">Mostrar Visualizador de Voz</label>
+                    <input type="checkbox" id="show-voice-visualizer">
+                </div>
+
                 <div class="setting-item">
                     <label data-i18n="sensitivity_label">Sensibilidad del Cursor</label>
                     <input type="range" id="sensitivity-range" min="0.05" max="0.3" step="0.01" value="0.15">
@@ -82,30 +116,50 @@
         <div id="text-tools" class="hidden collapsed">
             <div id="text-tools-trigger">...</div>
             <div id="text-tools-actions">
-                <button class="text-tool-btn" id="delete-btn" title="Borrar (Mantener para borrar rápido)">⌫</button>
-                <button class="text-tool-btn" id="mic-btn" title="Dictado por voz">🎤</button>
+                <button class="text-tool-btn" id="delete-btn" title="Borrar (Mantener para borrar rápido)">
+                    <svg class="tool-progress" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28"></circle></svg>
+                    <span class="tool-icon">⌫</span>
+                </button>
+                <button class="text-tool-btn" id="mic-btn" title="Dictado por voz">
+                    <svg class="tool-progress" viewBox="0 0 64 64"><circle cx="32" cy="32" r="28"></circle></svg>
+                    <canvas id="mic-wave-canvas" width="64" height="64"></canvas>
+                    <span class="tool-icon">🎤</span>
+                </button>
             </div>
         </div>
 
         <!-- Scroll Icon -->
         <div id="scroll-overlay" class="hidden">
-            <div class="scroll-icon">↕</div>
+            <div class="scroll-gauge-container">
+                <div class="scroll-gauge-track">
+                    <div class="scroll-gauge-bar" id="scroll-bar-fill"></div>
+                </div>
+                <div class="scroll-gauge-center"></div>
+                <div class="scroll-gauge-value" id="scroll-value-text">0%</div>
+            </div>
             <div class="scroll-text">MODO SCROLL</div>
+        </div>
+
+        <!-- Camera Error Modal -->
+        <div id="camera-error-modal" class="hidden">
+            <div id="error-content">
+                <div class="error-icon">⚠️</div>
+                <h2>Error de Cámara</h2>
+                <p>No se pudo detectar o acceder a ninguna cámara activa.</p>
+                <div class="error-tips">
+                    <ul>
+                        <li>Asegúrate de que la cámara esté conectada.</li>
+                        <li>Cierra otras apps que usen la cámara (Zoom, Teams, etc).</li>
+                        <li>Verifica los permisos de privacidad de tu sistema.</li>
+                    </ul>
+                </div>
+                <button class="menu-btn" id="retry-camera-btn">Reintentar Conexión</button>
+            </div>
         </div>
 
         <div id="menu-hint">Cierra ambos puños para el menú</div>
     </div>
 
-    <!-- Three.js -->
-    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://unpkg.com/three@latest/build/three.module.js",
-                "three/addons/": "https://unpkg.com/three@latest/examples/jsm/"
-            }
-        }
-    </script>
     <script src="renderer.js"></script>
 </body>
 </html>

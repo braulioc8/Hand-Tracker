@@ -38,4 +38,4 @@ EL SOFTWARE SE PROPORCIONA "TAL CUAL" (AS IS), SIN GARANTÍA DE NINGÚN TIPO, EX
 
 ---
 
-**Contact / Contacto:** gmail / cajasbraulio@gmail.com
+**Contact / Contacto:** Braulio Alexander Cajas Simba (cajasbraulio@gmail.com)

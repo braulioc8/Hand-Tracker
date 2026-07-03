@@ -1,10 +1,70 @@
+# Dependencias de Node
 node_modules/
+jspm_packages/
+web_modules/
+
+# Directorios de compilación y empaquetado de Electron
 dist/
 out/
+build/
+releases/
+models/
+*.deb
+*.exe
+*.dmg
+*.zip
+*.tar.gz
+
+# Archivos de Sistema y Temporales
 .DS_Store
+Thumbs.db
+Desktop.ini
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Entorno y Secretos (Claves de API, tokens, certificados)
 .env
-assets/tutorial/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.pem
+*.key
+*.pub
+*.cert
+*.pfx
+*.p12
+credentials.json
+secrets/
+private/
+
+# IDEs y Editores de código
 .vscode/
 .idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+.project
+.classpath
+.settings/
+
+# Archivos del Gestor de Paquetes
 pnpm-lock.yaml
+package-lock.json
+
+# Documentación interna e información de desarrollo (Reglas del Agente)
+GEMINI.md
+PUBLISH.md
+.gemini/
+antigravity-cli/
+
+# Caches locales
+.npm/
+.eslintcache
+.parcel-cache
